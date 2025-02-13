@@ -10,8 +10,6 @@ public class Auth {
   HashMap<String, User> registeredUsers = new HashMap<>();
   TaskManagement taskManagementApp = new TaskManagement();
 
-  private User currentUser;
-
   public Auth() {
     registeredUsers.put("ade", new User("ade", "password"));
     registeredUsers.put("user2", new User("user2", "password"));
@@ -35,9 +33,8 @@ public class Auth {
 
       // Handle success state
       if (user.login(username, password)) {
-        currentUser = user;
         System.out.println("Login successful");
-        taskManagementApp.setUserSession(currentUser);
+        taskManagementApp.setUserSession(user);
         taskManagementApp.manageTaskPrompt();
       } else {
         System.out.println("Invalid credentials");
