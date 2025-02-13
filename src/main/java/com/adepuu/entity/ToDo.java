@@ -1,7 +1,7 @@
 package com.adepuu.entity;
 
 public class ToDo {
-  private String task;
+  private final String task;
   private boolean isDone;
 
   public ToDo(String task) {
